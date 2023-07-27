@@ -23,6 +23,8 @@ const humidity = document.querySelector(".humidity");
 const wind = document.querySelector(".wind");
 const rain = document.querySelector(".rain");
 
+//# global Variables
+
 let lat;
 let lon;
 
@@ -49,12 +51,21 @@ fetch(`https://api.openweathermap.org/data/2.5/weather?lat=51.233334&&lon=6.7833
       data.dt * 1000 + data.timezone * 1000 + localTimezoneOffset * 1000
     ).toLocaleDateString("us-US", { year: "numeric", month: "short", day: "numeric" })}`;
 
+    if (data.wind.deg <= 90) {
+      wind.textContent = `${data.wind.speed} m/s, ${data.wind.deg} ° NO`;
+    } else if (data.wind.deg > 90 && data.wind.deg <= 180) {
+      wind.textContent = `${data.wind.speed} m/s, ${data.wind.deg} ° SO`;
+    } else if (data.wind.deg > 180 && data.wind.deg <= 270) {
+      wind.textContent = `${data.wind.speed} m/s, ${data.wind.deg} ° SW`;
+    } else if (data.wind.deg > 270 && data.wind.deg <= 360) {
+      wind.textContent = `${data.wind.speed} m/s, ${data.wind.deg} ° NW`;
+    }
+
     weatherConditionOutput.innerHTML = `<img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png">`;
     temperatureOutput.textContent = `${data.main.temp.toFixed(0)} °C`;
     weatherCondition.textContent = `${data.weather[0].description}`;
     pressure.textContent = `${data.main.pressure} hpa`;
     humidity.textContent = `${data.main.humidity}%`;
-    wind.textContent = `${data.wind.speed} m/s, ${data.wind.deg} °`;
 
     if (data.rain) {
       rain.textContent = `${data.rain["1h"]} mm`;
@@ -126,12 +137,21 @@ sendButton.addEventListener("click", () => {
             data.dt * 1000 + data.timezone * 1000 + localTimezoneOffset * 1000
           ).toLocaleDateString("us-US", { year: "numeric", month: "short", day: "numeric" })}`;
 
+          if (data.wind.deg <= 90) {
+            wind.textContent = `${data.wind.speed} m/s, ${data.wind.deg} ° NO`;
+          } else if (data.wind.deg > 90 && data.wind.deg <= 180) {
+            wind.textContent = `${data.wind.speed} m/s, ${data.wind.deg} ° SO`;
+          } else if (data.wind.deg > 180 && data.wind.deg <= 270) {
+            wind.textContent = `${data.wind.speed} m/s, ${data.wind.deg} ° SW`;
+          } else if (data.wind.deg > 270 && data.wind.deg <= 360) {
+            wind.textContent = `${data.wind.speed} m/s, ${data.wind.deg} ° NW`;
+          }
+
           weatherConditionOutput.innerHTML = `<img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png">`;
           temperatureOutput.textContent = `${data.main.temp.toFixed(0)} °C`;
           weatherCondition.textContent = `${data.weather[0].description}`;
           pressure.textContent = `${data.main.pressure} hpa`;
           humidity.textContent = `${data.main.humidity}%`;
-          wind.textContent = `${data.wind.speed} m/s, ${data.wind.deg} °`;
           if (data.rain) {
             rain.textContent = `${data.rain["1h"]} mm`;
           } else {
