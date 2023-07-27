@@ -1,0 +1,212 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+  2. Remove default margin and padding
+*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/*
+  3. Allow percentage-based heights in the application
+*/
+html,
+body {
+  height: 100%;
+}
+
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/*
+  7. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/*
+  8. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/*
+  9. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url("../font/Montserrat/Montserrat-VariableFont_wght.ttf");
+}
+body {
+  font-family: Montserrat;
+  background-color: #343d4b;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body img {
+  width: 150px;
+  height: 150px;
+}
+body input {
+  background-color: transparent;
+  color: white;
+  border: none;
+  border-bottom: 0.125rem solid white;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+body input:hover {
+  background-color: #2f3641;
+}
+body input:focus {
+  outline: none;
+}
+
+.weather-input {
+  background-color: #222831;
+  width: 40%;
+  height: 55%;
+  border-radius: 25px;
+}
+
+.weather {
+  position: relative;
+  height: 60%;
+  border-radius: 25px;
+  background-image: url("../img/nasa-i9w4Uy1pU-s-unsplash.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 35%;
+  box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.2);
+  transition: transform 300ms ease;
+  transform: translateZ(0) scale(1.02) perspective(1000px);
+  float: left;
+}
+
+.weather:hover {
+  transform: scale(1.1) perspective(1500px) rotateY(10deg);
+}
+
+.weather-infos {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.weather-infos .local-time-day {
+  font-size: 36px;
+  font-weight: 700;
+}
+.weather-infos .local-time-clock {
+  font-size: 20px;
+}
+.weather-infos .local-time-date {
+  font-size: 24px;
+  font-weight: 500;
+}
+.weather-infos .temperature {
+  font-size: 40px;
+}
+.weather-infos .weather-condition {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.weather-gradient {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(135deg, #72edf2 10%, #5151e5 100%);
+  border-radius: 25px;
+  opacity: 0.8;
+}
+
+.send {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  outline: none;
+  width: 250px;
+  height: 50px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 25px;
+  padding: 10px;
+  font-family: "Montserrat", sans-serif;
+  background-image: linear-gradient(135deg, #72edf2 10%, #5151e5 100%);
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 0 30px -5px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: transform 200ms ease;
+}
+
+.send:hover {
+  transform: scale(0.95);
+}
+
+.weather-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.info-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  text-align: left;
+  width: 80%;
+  margin: 0 auto;
+}/*# sourceMappingURL=style.css.map */

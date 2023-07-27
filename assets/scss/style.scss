@@ -1,0 +1,159 @@
+@use "./resets";
+@use "./generals";
+@use "./mixins";
+@use "./variables";
+
+body {
+  font-family: Montserrat;
+  background-color: #343d4b;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 150px;
+    height: 150px;
+  }
+
+  input {
+    background-color: transparent;
+    color: white;
+    border: none;
+    border-bottom: 0.125rem solid white;
+    margin-bottom: 10px;
+    font-size: 24px;
+  }
+
+  input:hover {
+    background-color: #2f3641;
+  }
+
+  input:focus {
+    outline: none;
+  }
+}
+
+.weather-input {
+  background-color: #222831;
+  width: 40%;
+  height: 55%;
+  border-radius: 25px;
+}
+
+.weather {
+  position: relative;
+  height: 60%;
+  border-radius: 25px;
+  background-image: url("../img/nasa-i9w4Uy1pU-s-unsplash.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 35%;
+  -webkit-box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.2);
+  -webkit-transition: -webkit-transform 300ms ease;
+  transition: -webkit-transform 300ms ease;
+  -o-transition: transform 300ms ease;
+  transition: transform 300ms ease;
+  transition: transform 300ms ease, -webkit-transform 300ms ease;
+  -webkit-transform: translateZ(0) scale(1.02) perspective(1000px);
+  transform: translateZ(0) scale(1.02) perspective(1000px);
+  float: left;
+}
+
+.weather:hover {
+  -webkit-transform: scale(1.1) perspective(1500px) rotateY(10deg);
+  transform: scale(1.1) perspective(1500px) rotateY(10deg);
+}
+
+.weather-infos {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  .local-time-day {
+    font-size: 36px;
+    font-weight: 700;
+  }
+
+  .local-time-clock {
+    font-size: 20px;
+  }
+
+  .local-time-date {
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  .temperature {
+    font-size: 40px;
+  }
+
+  .weather-condition {
+    font-size: 24px;
+    font-weight: 500;
+  }
+}
+
+.weather-gradient {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(135deg, #72edf2 10%, #5151e5 100%);
+  border-radius: 25px;
+  opacity: 0.8;
+}
+
+.send {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  outline: none;
+  width: 250px;
+  height: 50px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 25px;
+  padding: 10px;
+  font-family: "Montserrat", sans-serif;
+  background-image: linear-gradient(135deg, #72edf2 10%, #5151e5 100%);
+  color: #ffffff;
+  font-weight: 700;
+  -webkit-box-shadow: 0 0 30px -5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 30px -5px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 200ms ease;
+  transition: -webkit-transform 200ms ease;
+  -o-transition: transform 200ms ease;
+  transition: transform 200ms ease;
+  transition: transform 200ms ease, -webkit-transform 200ms ease;
+}
+
+.send:hover {
+  -webkit-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  transform: scale(0.95);
+}
+
+.weather-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.info-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  text-align: left;
+  width: 80%;
+  margin: 0 auto;
+}
