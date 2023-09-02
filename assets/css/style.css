@@ -107,16 +107,24 @@ body input:focus {
   outline: none;
 }
 
+body input:-webkit-autofill,
+body input:-webkit-autofill:hover,
+body input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: white;
+}
+
 .weather-input {
   background-color: #222831;
   width: 300px;
-  height: 55%;
+  height: 450px;
   border-radius: 25px;
 }
 
 .weather {
   position: relative;
-  height: 60%;
+  height: 500px;
   border-radius: 25px;
   background-image: url("../img/nasa-i9w4Uy1pU-s-unsplash.jpg");
   background-position: center;
@@ -209,4 +217,30 @@ body input:focus {
   text-align: left;
   width: 80%;
   margin: 0 auto;
-}/*# sourceMappingURL=style.css.map */
+} /*# sourceMappingURL=style.css.map */
+
+.submit {
+  padding: 20px;
+  background-color: transparent;
+  color: white;
+}
+
+@media (max-width: 620px) {
+  body {
+    flex-direction: column-reverse;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  #city-input {
+    margin-bottom: 20px;
+  }
+
+  .send {
+    margin: 0 auto;
+  }
+
+  .weather:hover {
+    transform: none;
+  }
+}

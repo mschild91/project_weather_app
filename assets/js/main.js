@@ -6,7 +6,7 @@ import { apiKey } from "./api.js"
 
 const userCountryInput = document.querySelector("#country-input")
 const userCityInput = document.querySelector("#city-input")
-const sendButton = document.querySelector(".send")
+const submitForm = document.querySelector(".submit")
 
 //# output
 
@@ -95,9 +95,12 @@ fetch(`https://api.openweathermap.org/data/2.5/weather?lat=51.233334&&lon=6.7833
 
   .catch((error) => console.log(error))
 
-sendButton.addEventListener("click", () => {
+submitForm.addEventListener("submit", (event) => {
+  event.preventDefault()
+
   const userCountryInputValue = userCountryInput.value.toLowerCase()
   const userCityInputValue = userCityInput.value.toLowerCase()
+
   fetch(
     `https://api.openweathermap.org/geo/1.0/direct?q=${userCityInputValue}, ${userCountryInputValue}&limit=1&appid=${apiKey}&units=metric`
   )
