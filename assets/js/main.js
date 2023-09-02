@@ -99,7 +99,7 @@ sendButton.addEventListener("click", () => {
   const userCountryInputValue = userCountryInput.value.toLowerCase()
   const userCityInputValue = userCityInput.value.toLowerCase()
   fetch(
-    `http://api.openweathermap.org/geo/1.0/direct?q=${userCityInputValue}, ${userCountryInputValue}&limit=1&appid=${apiKey}&units=metric`
+    `https://api.openweathermap.org/geo/1.0/direct?q=${userCityInputValue}, ${userCountryInputValue}&limit=1&appid=${apiKey}&units=metric`
   )
     .then((response) => {
       if (!response.ok) {
